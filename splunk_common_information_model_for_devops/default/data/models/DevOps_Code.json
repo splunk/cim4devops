@@ -1,0 +1,1476 @@
+{
+    "modelName": "DevOps_Code",
+    "displayName": "DevOps Code",
+    "description": "A data model for DevOps code concerns",
+    "objectSummary": {
+        "Event-Based": 0,
+        "Transaction-Based": 0,
+        "Search-Based": 3
+    },
+    "objects": [
+        {
+            "objectName": "DevOps_Commit",
+            "displayName": "DevOps Commit",
+            "parentName": "BaseSearch",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "commit_files_added",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_files_added",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "commit_files_modified",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_files_modified",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "commit_files_removed",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_files_removed",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "commit_hash",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_hash",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "commit_message",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_message",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "issueNumber",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "issueNumber",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "commit_branch",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_branch",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "commit_timestamp",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_timestamp",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "commit_username",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_username",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "eventtype",
+                    "owner": "DevOps_Commit",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "eventtype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "commits_list",
+                            "owner": "DevOps_Commit",
+                            "type": "string",
+                            "fieldSearch": "commits_list=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "commits_list",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "428x79nuykv",
+                    "owner": "DevOps_Commit",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.id'), 'commits{}.id', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "repository_name",
+                            "owner": "DevOps_Commit",
+                            "type": "string",
+                            "fieldSearch": "repository_name=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "repository_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "d27uujt4pz7",
+                    "owner": "DevOps_Commit",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('repository.name'), 'repository.name', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "repository_organization",
+                            "owner": "DevOps_Commit",
+                            "type": "string",
+                            "fieldSearch": "repository_organization=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "repository_organization",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "l873y8fq1kf",
+                    "owner": "DevOps_Commit",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('organization.login'), 'organization.login', null())"
+                }
+            ],
+            "constraints": [],
+            "lineage": "DevOps_Commit",
+            "baseSearch": "`devops_indexes` eventtype=\"GitHub::Push\"\n`extract_branch_issuenumber`\n`individual_commits`"
+        },
+        {
+            "objectName": "DevOps_Push",
+            "displayName": "DevOps Push",
+            "parentName": "BaseSearch",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "source",
+                    "owner": "DevOps_Push",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "DevOps_Push",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "eventtype",
+                    "owner": "DevOps_Push",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "eventtype",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "action",
+                    "owner": "DevOps_Push",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "action",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "branch",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "branch=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "branch",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "14o6nry7pbm",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commit_branch'), 'commit_branch', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "issueNumber",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "issueNumber",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "upq4uk5pisa",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(issueNumber), issueNumber, null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "earliest_commit_hash",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "earliest_commit_hash",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "t0xoch0yle",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(mvindex('commits{}.id', 0)), mvindex('commits{}.id', 0) , null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "earliest_commit_message",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "earliest_commit_message",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "gztjd2unget",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(mvindex('commits{}.message', 0)), mvindex('commits{}.message', 0) , null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "earliest_commit_author_user",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "earliest_commit_author_user",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "e8p2e9jwzb",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(mvindex('commits{}.author.username', 0)), mvindex('commits{}.author.username', 0) , null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "earliest_commit_date",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "earliest_commit_date",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "zvki3o4xvb",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(mvindex('commits{}.timestamp', 0)), mvindex('commits{}.timestamp', 0) , null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_author_user",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_author_user",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "ez0hq7zzexf",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(('eventtype'==\"GitHub::Push\" AND 'commit_username'==\"\"), 'head_commit.author.username', if(('eventtype'==\"GitHub::Push\" AND 'commit_username'!=\"\"), 'commit_username', \"\"))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_hash",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_hash",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "fg00ezjcr7l",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(('eventtype'==\"GitHub::Push\" AND 'commit_hash'==\"\"), 'head_commit.id', if(('eventtype'==\"GitHub::Push\" AND 'commit_hash'!=\"\"), 'commit_hash', \"\"))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_date",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_date",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "c2ntpqfd1bn",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(('eventtype'==\"GitHub::Push\" AND 'commit_timestamp'==\"\"), 'head_commit.timestamp', if(('eventtype'==\"GitHub::Push\" AND 'commit_timestamp'!=\"\"), 'commit_timestamp', \"\"))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_message",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_message",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "bzlpymo7qlu",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(('eventtype'==\"GitHub::Push\" AND 'commit_message'==\"\"), 'head_commit.message', if(('eventtype'==\"GitHub::Push\" AND 'commit_message'!=\"\"), 'commit_message', \"\"))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "current_push",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "current_push=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "current_push",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "vytzxuktybs",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('after'), 'after', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "previous_push",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "previous_push",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "x3flf0j8mer",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('before'), 'before', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_added",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_added",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "lq93dw8lvvf",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.added{}'), 'commits{}.added{}', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_modified",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_modified",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "n01895z8iz",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.modified{}'), 'commits{}.modified{}', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_removed",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_removed",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "agmgb69yx8",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.removed{}' ), 'commits{}.removed{}' , null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "commits_list",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "commits_list",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "c6ardywat4g",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.id'), 'commits{}.id', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "commits_message_list",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "commits_message_list",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "v9euamkxyk",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.message'), 'commits{}.message', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "commits_author_list",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "commits_author_list",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "1f4109nwtn4",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.author.username'), 'commits{}.author.username', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "commits_timestamp_list",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "commits_timestamp_list",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "j4x0nkj4tgk",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.timestamp'), 'commits{}.timestamp', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "repository_organization",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "repository_organization=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "repository_organization",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "w92vp3k9gv",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('organization.login'), 'organization.login', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "repository_name",
+                            "owner": "DevOps_Push",
+                            "type": "string",
+                            "fieldSearch": "repository_name=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "repository_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "twoyoe24x2g",
+                    "owner": "DevOps_Push",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('repository.name'), 'repository.name', null())"
+                }
+            ],
+            "constraints": [],
+            "lineage": "DevOps_Push",
+            "baseSearch": "`github_webhooks` NOT (action=\"created\" OR action=\"deleted\") NOT (eventtype=\"GitHub::Issue::Comment\" OR eventtype=\"GitHub::Issue\") AND (eventtype=\"GitHub::Repo\" OR eventtype=\"GitHub::Push\") `extract_branch_issuenumber` `individual_commits`"
+        },
+        {
+            "objectName": "DevOps_PullRequest",
+            "displayName": "DevOps PullRequest",
+            "parentName": "BaseSearch",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "source",
+                    "owner": "DevOps_PullRequest",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "DevOps_PullRequest",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "eventtype",
+                    "owner": "DevOps_PullRequest",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "eventtype",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "pull_request.merged",
+                    "owner": "DevOps_PullRequest",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "pull_request_merged",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "pull_request.merged_at",
+                    "owner": "DevOps_PullRequest",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "pull_request_merged_at",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "review.state",
+                    "owner": "DevOps_PullRequest",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "review.state",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "action",
+                    "owner": "DevOps_PullRequest",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "action",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "branch",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "branch",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "jkfutgy2hv",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commit_branch'), 'commit_branch', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "issueNumber",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "issueNumber",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "4l1coe624aa",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(issueNumber), issueNumber, null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "pr_id",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "pr_id=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "pr_id",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "q8wt4mxsifh",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if((('eventtype'==\"GitHub::PullRequest\" OR 'eventtype'==\"GitHub::PullRequest::Review\") AND isnotnull('number')), 'number', if((('eventtype'==\"GitHub::PullRequest\" OR 'eventtype'==\"GitHub::PullRequest::Review\") AND isnull('number')), 'pull_request.number', \"N/A\"))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "pr_message",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "pr_message",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "5mtftg64lq",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('pull_request.body'), 'pull_request.body', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "pr_created_date",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "pr_created_date",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "e4s8ooos9z",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('pull_request.created_at'), 'pull_request.created_at', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "commits_list",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "commits_list",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "oluucfuo4i",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.id'), 'commits{}.id', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "commits_message_list",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "commits_message_list",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "foyfipr5mbu",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.message'), 'commits{}.message', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "commits_timestamp_list",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "commits_timestamp_list",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "nr70a5l2sgr",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.timestamp'), 'commits{}.timestamp', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "commits_author_list",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "commits_author_list",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "cw6vrouvcrm",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.author.username'), 'commits{}.author.username', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "current_push",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "current_push",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "llmi8fdoe28",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('after'), 'after', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "previous_push",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "previous_push",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "ux4ecdmoq1i",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('before'), 'before', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_added",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_added",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "sam0r0xb8j",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.added{}'), 'commits{}.added{}', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_modified",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_modified",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "zor1xf1easg",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.modified{}'), 'commits{}.modified{}', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_removed",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_removed",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "eug46l0bgi5",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commits{}.removed{}' ), 'commits{}.removed{}' , null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "assigned_reviewers",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "assigned_reviewers",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "arj2t2gq5",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('pull_request.assignees{}.login'), 'pull_request.assignees{}.login', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "earliest_commit_date",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "earliest_commit_date",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "wwm0rd719f",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(mvindex('commits{}.timestamp', 0)), mvindex('commits{}.timestamp', 0) , null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "earliest_commit_author_user",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "earliest_commit_author_user",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "71gtryn8bre",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(mvindex('commits{}.author.username', 0)), mvindex('commits{}.author.username', 0) , null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "earliest_commit_message",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "earliest_commit_message",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "fuusd1d2wue",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(mvindex('commits{}.message', 0)), mvindex('commits{}.message', 0) , null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "earliest_commit_hash",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "earliest_commit_hash",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "a9x5xosfutj",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(mvindex('commits{}.id', 0)), mvindex('commits{}.id', 0) , null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_date",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_date",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "qng1o114w4g",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(('eventtype'==\"GitHub::Push\" AND 'commit_timestamp'==\"\"), 'head_commit.timestamp', if(('eventtype'==\"GitHub::Push\" AND 'commit_timestamp'!=\"\"), 'commit_timestamp', \"\"))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_author_user",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_author_user",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "28mwbo399rm",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('pull_request.user.login'), 'pull_request.user.login', if(('eventtype'==\"GitHub::Push\" AND 'commit_username'==\"\"), 'head_commit.author.username', if(('eventtype'==\"GitHub::Push\" AND 'commit_username'!=\"\"), 'commit_username', \"\")))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_message",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_message",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "c2emv6jhxzj",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(('eventtype'==\"GitHub::Push\" AND 'commit_message'==\"\"), 'head_commit.message', if(('eventtype'==\"GitHub::Push\" AND 'commit_message'!=\"\"), 'commit_message', \"\"))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_hash",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_hash",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "z3spb21w5o",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(('eventtype'==\"GitHub::PullRequest\" OR 'eventtype'==\"GitHub::PullRequest::Review\"), 'pull_request.head.sha', (if(('eventtype'==\"GitHub::Push\" AND 'commit_hash'==\"\"), 'head_commit.id', if(('eventtype'==\"GitHub::Push\" AND 'commit_hash'!=\"\"), 'commit_hash', \"\"))))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "repository_organization",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "repository_organization=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "repository_organization",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "mgwde0b9nwr",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('organization.login'), 'organization.login', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "repository_name",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "repository_name=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "repository_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "j427ft965",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('repository.name'), 'repository.name', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "pr_author_login",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "pr_author_login",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "0rz9lveqv1c",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('sender.login'), 'sender.login', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "review_author_login",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "review_author_login",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "3aw9pp5jh2",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('review.user.login'), 'review.user.login', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "review_state",
+                            "owner": "DevOps_PullRequest",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "review_state",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "kdjypnii8op",
+                    "owner": "DevOps_PullRequest",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('review.state'), 'review.state', null())"
+                }
+            ],
+            "constraints": [],
+            "lineage": "DevOps_PullRequest",
+            "baseSearch": "`github_webhooks` AND (eventtype=GitHub::PullRequest OR eventtype=GitHub::PullRequest::Review OR eventtype=GitHub::Push) `extract_branch_issuenumber` `individual_commits`"
+        }
+    ],
+    "objectNameList": [
+        "DevOps_Commit",
+        "DevOps_Push",
+        "DevOps_PullRequest"
+    ]
+}

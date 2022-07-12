@@ -1,0 +1,468 @@
+{
+    "modelName": "DevOps_Work",
+    "displayName": "DevOps Work",
+    "description": "A data model for Work items, tickets, issues related to DevOps and DevSecOps concerns",
+    "objectSummary": {
+        "Event-Based": 0,
+        "Transaction-Based": 0,
+        "Search-Based": 1
+    },
+    "objects": [
+        {
+            "objectName": "Work_Issues",
+            "displayName": "Work Issues",
+            "parentName": "BaseSearch",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "action",
+                    "owner": "Work_Issues",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "action",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "commit_branch",
+                    "owner": "Work_Issues",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_branch",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "commit_hash",
+                    "owner": "Work_Issues",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_hash",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "commit_timestamp",
+                    "owner": "Work_Issues",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_timestamp",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "commit_username",
+                    "owner": "Work_Issues",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "commit_username",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "current_priority",
+                    "owner": "Work_Issues",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "current_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "eventtype",
+                    "owner": "Work_Issues",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "eventtype",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "issue_assigned_date",
+                    "owner": "Work_Issues",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "issue_assigned_date",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "issue_tags",
+                    "owner": "Work_Issues",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "issue_tags",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "Work_Issues",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "Work_Issues",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "issueNumber",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "issueNumber=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "issueNumber",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "3t2uk9s4tvq",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(issueNumber), issueNumber, \"\")"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "status_update_date",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "status_update_date",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "t7z69rb8i48",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if('action'!=\"\", 'issue.updated_at', \"\")"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "assigned_user",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "assigned_user",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "glxjw5gwkr",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('issue.assignee.login'), 'issue.assignee.login', 'assignee.login')"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "status_current",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "status_current",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "g0gfwkdy10r",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(action==\"deleted\", \"deleted\", 'issue.state')"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "last_updated",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "last_updated",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "xhbgvnx7mzj",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(\"issue.update_at\"=\"*\", 'issue.update_at', strftime(_time,\"%Y-%m-%d %H:%M:%S\"))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "closed_date",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "closed_date",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "klgjyo1tfo",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('issue.closed_at'), 'issue.closed_at', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "submission_date",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "submission_date",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "8smhmvith6q",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('issue.created_at'), 'issue.created_at', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "submitter_user",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "submitter_user",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "uxzkbo4yfv",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('issue.user.login'), 'issue.user.login', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "issue_description",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "issue_description",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "mw763zncj9i",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('issue.body'), 'issue.body', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "issue_subject",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "issue_subject",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "5w1u17euzb2",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('issue.title'), 'issue.title', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "issue_href",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "issue_href",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "ukadmffjld8",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('issue.html_url'), 'issue.html_url', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "repository_name",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "repository_name=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "repository_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "dllc938rl37",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('repository.name'), 'repository.name', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "repository_organization",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "repository_organization=*",
+                            "required": true,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "repository_organization",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "wwu00zordm",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('organization.login'), 'organization.login', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "issue_assignees",
+                            "owner": "Work_Issues",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "issue_assignees",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "zddz1q6fr8k",
+                    "owner": "Work_Issues",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if('issue.assignees{}.login'!=\"\", 'issue.assignees{}.login', null)"
+                }
+            ],
+            "constraints": [],
+            "lineage": "Work_Issues",
+            "baseSearch": "`github_webhooks` AND (eventtype=\"GitHub::Issue\" OR eventtype=\"GitHub::Issue:Comment\" OR eventtype=\"GitHub::Push\") `extract_branch_issuenumber` `individual_commits`"
+        }
+    ],
+    "objectNameList": [
+        "Work_Issues"
+    ]
+}

@@ -1,0 +1,372 @@
+{
+    "modelName": "DevOps_Release",
+    "displayName": "DevOps Release",
+    "description": "A data model for DevOps Release concerns",
+    "objectSummary": {
+        "Event-Based": 0,
+        "Transaction-Based": 0,
+        "Search-Based": 1
+    },
+    "objects": [
+        {
+            "objectName": "DevOps_Release",
+            "displayName": "DevOps Release",
+            "parentName": "BaseSearch",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "issueNumber",
+                    "owner": "DevOps_Release",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "issueNumber",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "eventtype",
+                    "owner": "DevOps_Release",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "eventtype",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "DevOps_Release",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "release_status",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "release_status",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "pcm0mu2n36g",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('action'), 'action', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "asset_name",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "asset_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "6dr92afvl7k",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('release.assets{}.name'), 'release.assets{}.name', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "asset_content_type",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "asset_content_type",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "cqhx3aluhmc",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('release.assets{}.content_type'), 'release.assets{}.content_type', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "asset_uploader_login",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "asset_uploader_login",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "ub8uj8ax7pq",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('release.assets{}.uploader.login'), 'release.assets{}.uploader.login', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "release_author",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "release_author",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "gkc1pj5trmd",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('release.author.login'), 'release.author.login', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "release_created_at",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "release_created_at",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "yeu0sf6syp",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('release.created_at'), 'release.created_at', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "release_name",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "release_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "327aurz9xxi",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('release.name'), 'release.name', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "release_tags",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "release_tags",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "1tbqsihvkaz",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('release.tag_name'), 'release.tag_name', if((isnotnull('release_tag_name') AND eventtype=\"GitHub::Release::Push\"), release_tag_name, null()))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "release_url",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "release_url",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "8gp4oh6mj5o",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('release.url'), 'release.url', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "release_sender_name",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "release_sender_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "lfpxld412or",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('sender.login'), 'sender.login', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "repository_organization",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "repository_organization",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "p8ackzjbvuh",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('organization.login'), 'organization.login', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "repository_name",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "repository_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "qi00odaodom",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('repository.name'), 'repository.name', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_hash",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_hash",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "4b0gq1x7fme",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(after), after, null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "earliest_commit_hash",
+                            "owner": "DevOps_Release",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "earliest_commit_hash",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "nbxl4kgxgcd",
+                    "owner": "DevOps_Release",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(before), before, null())"
+                }
+            ],
+            "constraints": [],
+            "lineage": "DevOps_Release",
+            "baseSearch": "`github_webhooks` (eventtype=\"GitHub::Release\" OR eventtype=\"GitHub::Release::Push\") `extract_release_push_tags`"
+        }
+    ],
+    "objectNameList": [
+        "DevOps_Release"
+    ]
+}
