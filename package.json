@@ -1,5 +1,5 @@
 {
-  "name": "splunk_app_for_github",
+  "name": "splunk_common_information_model_for_devops",
   "version": "X.Y.Z",
   "description": "GitHub Audit Log Monitoring",
   "license": "MIT",
@@ -10,8 +10,8 @@
   ],
   "private": true,
   "splunk": {
-    "appName": "splunk_app_for_github",
-    "appSource": "splunk_app_for_github"
+    "appName": "splunk_common_information_model_for_devops",
+    "appSource": "splunk_common_information_model_for_devops"
   },
   "scripts": {
     "build": "lerna run build",
