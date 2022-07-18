@@ -24,9 +24,9 @@ jobs:
                 old_str="X.Y.Z"
                 new_str=$(echo "${GITHUB_REF#refs/*/}" | tr -d "v")
                 sed -i "s/$old_str/$new_str/g" package.json
-                sed -i "s/$old_str/$new_str/g" ./github_app_for_splunk/default/app.conf
+                sed -i "s/$old_str/$new_str/g" ./splunk_common_information_model_for_devops/default/app.conf
                 cat package.json
-                cat ./github_app_for_splunk/default/app.conf
+                cat ./splunk_common_information_model_for_devops/default/app.conf
             - name: Install dependencies
               run: yarn install
               env:
@@ -34,14 +34,14 @@ jobs:
             - name: Build app package
               run: |
                   yarn package
-                  mv dist/*.spl dist/github_app_for_splunk.spl
+                  mv dist/*.spl dist/splunk_common_information_model_for_devops.spl
             - uses: actions/upload-artifact@v1
               with:
                   name: app-package
-                  path: dist/github_app_for_splunk.spl
+                  path: dist/splunk_common_information_model_for_devops.spl
             - uses: ./.github/actions/appinspect_api
               with:
-                  filePath: ./dist/github_app_for_splunk.spl
+                  filePath: ./dist/splunk_common_information_model_for_devops.spl
                   splunkUser: ${{ secrets.SPLUNKBASE_USER }}
                   splunkPassword: ${{ secrets.SPLUNKBASE_PASSWORD }}
                   includedTags: cloud
@@ -49,5 +49,5 @@ jobs:
               uses: fnkr/github-action-ghr@v1
               if: startsWith(github.ref, 'refs/tags/')
               env:
-                  GHR_PATH: ./dist/github_app_for_splunk.spl
+                  GHR_PATH: ./dist/splunk_common_information_model_for_devops.spl
                   GITHUB_TOKEN: ${{ secrets.API_TOKEN }}

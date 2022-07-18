@@ -40,7 +40,7 @@ jobs:
           old_str="X.Y.Z"
           new_str="1.0.0"
           sed -i "s/$old_str/$new_str/g" package.json
-          sed -i "s/$old_str/$new_str/g" ./github_app_for_splunk/default/app.conf
+          sed -i "s/$old_str/$new_str/g" ./splunk_common_information_model_for_devops/default/app.conf
 
       - name: Install slim
         run: |
@@ -49,16 +49,16 @@ jobs:
       - name: Create package
         run: |
           mkdir build
-          slim package ./github_app_for_splunk
+          slim package ./splunk_common_information_model_for_devops
 
       - name: Run App Inspect CLI
         uses: splunk/appinspect-cli-action@v1
         with:
-          app_path: github_app_for_splunk-1.0.0.tar.gz
+          app_path: splunk_common_information_model_for_devops-1.0.0.tar.gz
           included_tags: cloud, splunk_appinspect
 
       - name: Upload package
         uses: actions/upload-artifact@v3
         with:
-          name: github_app_for_splunk-1.0.0.tar.gz
-          path: ./github_app_for_splunk-1.0.0.tar.gz
+          name: splunk_common_information_model_for_devops-1.0.0.tar.gz
+          path: ./splunk_common_information_model_for_devops-1.0.0.tar.gz
