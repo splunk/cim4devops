@@ -1,16 +1,16 @@
 {
     "modelName": "Code_Vulnerabilities",
     "displayName": "Code Vulnerabilities",
-    "description": "Code Vulnerabilities Data Model",
+    "description": "Vulnerabilities Data Model",
     "objectSummary": {
-        "Event-Based": 1,
+        "Event-Based": 8,
         "Transaction-Based": 0,
         "Search-Based": 0
     },
     "objects": [
         {
             "objectName": "Vulnerabilities",
-            "displayName": "Vulnerabilities",
+            "displayName": "Dependency Vulnerabilities",
             "parentName": "BaseEvent",
             "comment": {
                 "tags": [
@@ -205,54 +205,6 @@
                     "comment": ""
                 },
                 {
-                    "fieldName": "alert.number",
-                    "owner": "Vulnerabilities",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "alert.number",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "date_mday",
-                    "owner": "Vulnerabilities",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "date_mday",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "date_hour",
-                    "owner": "Vulnerabilities",
-                    "type": "number",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "date_hour",
-                    "comment": ""
-                },
-                {
-                    "fieldName": "action",
-                    "owner": "Vulnerabilities",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "status",
-                    "comment": ""
-                },
-                {
                     "fieldName": "_time",
                     "owner": "BaseEvent",
                     "type": "timestamp",
@@ -398,7 +350,7 @@
                     "editable": true,
                     "comment": "",
                     "calculationType": "Eval",
-                    "expression": "if(isnotnull(cve) AND cve!=\"\",lower(cve),\"---\")"
+                    "expression": "if(isnotnull(cve) AND cve!=\"\",lower(cve),null())"
                 },
                 {
                     "outputFields": [
@@ -503,7 +455,7 @@
                     "editable": true,
                     "comment": "",
                     "calculationType": "Eval",
-                    "expression": "if(isnull(severity) OR severity=\"\",if(isnull('alert.rule.security_severity_level'),\"unknown\",alert.rule.security_severity_level),severity)"
+                    "expression": "if(isnull(severity) OR severity=\"\",\"unknown\",severity)"
                 },
                 {
                     "outputFields": [
@@ -577,13 +529,1086 @@
                     "editable": true,
                     "comment": "",
                     "calculationType": "Eval",
-                    "expression": "if(isnotnull(xref) AND xref!=\"\",lower(xref),\"---\")"
+                    "expression": "if(isnotnull(xref) AND xref!=\"\",lower(xref),null())"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "(`devops_indexes`) tag=vulnerability tag=report category=\"dependency\"",
+                    "owner": "Vulnerabilities"
+                }
+            ],
+            "lineage": "Vulnerabilities"
+        },
+        {
+            "objectName": "High_Critical_Vulnerabilities",
+            "displayName": "High Or Critical Vulnerabilities",
+            "parentName": "Vulnerabilities",
+            "comment": {
+                "tags": [
+                    "vulnerability",
+                    "report"
+                ]
+            },
+            "fields": [
+                {
+                    "fieldName": "dest_bunit",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_bunit",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "dest_category",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_category",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "dest_priority",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_priority",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "severity_id",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "severity_id",
+                    "comment": {
+                        "description": "The numeric or vendor specific severity indicator corresponding to the event severity."
+                    }
+                },
+                {
+                    "fieldName": "signature_id",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "signature_id",
+                    "comment": {
+                        "description": "The unique identifier or event code of the event signature."
+                    }
+                },
+                {
+                    "fieldName": "tag",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": {
+                        "description": "This automatically generated field is used to access tags from within data models. Add-on builders do not need to populate it.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "url",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": {
+                        "description": "The URL involved in the discovered vulnerability."
+                    }
+                },
+                {
+                    "fieldName": "user",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user",
+                    "comment": {
+                        "description": "The user involved in the discovered vulnerability."
+                    }
+                },
+                {
+                    "fieldName": "user_bunit",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_bunit",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "user_category",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_category",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "user_priority",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_priority",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "repository_name",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "repository_name=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "repository_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "organization",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "organization=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "(severity=\"high\" OR severity=\"critical\")",
+                    "owner": "Vulnerabilities.High_Critical_Vulnerabilities"
+                }
+            ],
+            "lineage": "Vulnerabilities.High_Critical_Vulnerabilities"
+        },
+        {
+            "objectName": "Medium_Vulnerabilities",
+            "displayName": "Medium Vulnerabilities",
+            "parentName": "Vulnerabilities",
+            "comment": {
+                "tags": [
+                    "vulnerability",
+                    "report"
+                ]
+            },
+            "fields": [
+                {
+                    "fieldName": "dest_bunit",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_bunit",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "dest_category",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_category",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "dest_priority",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_priority",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "severity_id",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "severity_id",
+                    "comment": {
+                        "description": "The numeric or vendor specific severity indicator corresponding to the event severity."
+                    }
+                },
+                {
+                    "fieldName": "signature_id",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "signature_id",
+                    "comment": {
+                        "description": "The unique identifier or event code of the event signature."
+                    }
+                },
+                {
+                    "fieldName": "tag",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": {
+                        "description": "This automatically generated field is used to access tags from within data models. Add-on builders do not need to populate it.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "url",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": {
+                        "description": "The URL involved in the discovered vulnerability."
+                    }
+                },
+                {
+                    "fieldName": "user",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user",
+                    "comment": {
+                        "description": "The user involved in the discovered vulnerability."
+                    }
+                },
+                {
+                    "fieldName": "user_bunit",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_bunit",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "user_category",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_category",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "user_priority",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_priority",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "repository_name",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "repository_name=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "repository_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "organization",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "organization=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "severity=\"medium\"",
+                    "owner": "Vulnerabilities.Medium_Vulnerabilities"
+                }
+            ],
+            "lineage": "Vulnerabilities.Medium_Vulnerabilities"
+        },
+        {
+            "objectName": "Low_Informational_Vulnerabilities",
+            "displayName": "Low Or Informational Vulnerabilities",
+            "parentName": "Vulnerabilities",
+            "comment": {
+                "tags": [
+                    "vulnerability",
+                    "report"
+                ]
+            },
+            "fields": [
+                {
+                    "fieldName": "dest_bunit",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_bunit",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "dest_category",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_category",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "dest_priority",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_priority",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "severity_id",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "severity_id",
+                    "comment": {
+                        "description": "The numeric or vendor specific severity indicator corresponding to the event severity."
+                    }
+                },
+                {
+                    "fieldName": "signature_id",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "signature_id",
+                    "comment": {
+                        "description": "The unique identifier or event code of the event signature."
+                    }
+                },
+                {
+                    "fieldName": "tag",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": {
+                        "description": "This automatically generated field is used to access tags from within data models. Add-on builders do not need to populate it.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "url",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": {
+                        "description": "The URL involved in the discovered vulnerability."
+                    }
+                },
+                {
+                    "fieldName": "user",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user",
+                    "comment": {
+                        "description": "The user involved in the discovered vulnerability."
+                    }
+                },
+                {
+                    "fieldName": "user_bunit",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_bunit",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "user_category",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": true,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_category",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "user_priority",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_priority",
+                    "comment": {
+                        "description": "This field is automatically provided by asset and identity correlation features of applications like Splunk Enterprise Security. Do not define extractions for this field when writing add-ons.",
+                        "ta_relevant": false
+                    }
+                },
+                {
+                    "fieldName": "repository_name",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "repository_name=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "repository_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "organization",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "organization=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "(severity=\"low\" OR severity=\"informational\")",
+                    "owner": "Vulnerabilities.Low_Informational_Vulnerabilities"
+                }
+            ],
+            "lineage": "Vulnerabilities.Low_Informational_Vulnerabilities"
+        },
+        {
+            "objectName": "Coding_Vulnerabilities",
+            "displayName": "Coding Vulnerabilities",
+            "parentName": "BaseEvent",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "dest_bunit",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_category",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_priority",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "organization",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "repository_name",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "repository_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "severity_id",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "severity_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "signature_id",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "signature_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "tag",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "url",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_bunit",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_category",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_priority",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "action",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.number",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "number",
+                    "fieldSearch": "alert.number=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "alert.number",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "bugtraq",
+                            "owner": "Coding_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "bugtraq",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "ntu4gcidb2e",
+                    "owner": "Coding_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(bugtraq) AND bugtraq!=\"\",lower(bugtraq),null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "category",
+                            "owner": "Coding_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "category",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "7spjfcy2p9s",
+                    "owner": "Coding_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(category) OR category=\"\",\"unknown\",category)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "cert",
+                            "owner": "Coding_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "cert",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "00uo6slylh08q",
+                    "owner": "Coding_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(cert) AND cert!=\"\",lower(cert),null())"
                 },
                 {
                     "outputFields": [
                         {
                             "fieldName": "rule_name",
-                            "owner": "Vulnerabilities",
+                            "owner": "Coding_Vulnerabilities",
                             "type": "string",
                             "fieldSearch": "",
                             "required": false,
@@ -594,8 +1619,8 @@
                             "comment": ""
                         }
                     ],
-                    "calculationID": "hl1se52acng",
-                    "owner": "Vulnerabilities",
+                    "calculationID": "0wbznvwmfwvl",
+                    "owner": "Coding_Vulnerabilities",
                     "editable": true,
                     "comment": "",
                     "calculationType": "Eval",
@@ -604,80 +1629,907 @@
                 {
                     "outputFields": [
                         {
-                            "fieldName": "t_day",
-                            "owner": "Vulnerabilities",
+                            "fieldName": "dest",
+                            "owner": "Coding_Vulnerabilities",
                             "type": "string",
                             "fieldSearch": "",
                             "required": false,
                             "multivalue": false,
                             "hidden": false,
                             "editable": true,
-                            "displayName": "t_day",
+                            "displayName": "dest",
                             "comment": ""
                         }
                     ],
-                    "calculationID": "oq07911kgg",
-                    "owner": "Vulnerabilities",
+                    "calculationID": "ugdfv2l9v1s",
+                    "owner": "Coding_Vulnerabilities",
                     "editable": true,
                     "comment": "",
                     "calculationType": "Eval",
-                    "expression": "strftime(_time, \"%d\")"
+                    "expression": "if(isnull(dest) OR dest=\"\",\"unknown\",dest)"
                 },
                 {
                     "outputFields": [
                         {
-                            "fieldName": "t_hour",
-                            "owner": "Vulnerabilities",
+                            "fieldName": "msft",
+                            "owner": "Coding_Vulnerabilities",
                             "type": "string",
                             "fieldSearch": "",
                             "required": false,
                             "multivalue": false,
                             "hidden": false,
                             "editable": true,
-                            "displayName": "t_hour",
+                            "displayName": "msft",
                             "comment": ""
                         }
                     ],
-                    "calculationID": "1fyancd4up2",
-                    "owner": "Vulnerabilities",
+                    "calculationID": "v44rm9erua",
+                    "owner": "Coding_Vulnerabilities",
                     "editable": true,
                     "comment": "",
                     "calculationType": "Eval",
-                    "expression": "strftime(_time, \"%H\")"
+                    "expression": "if(isnotnull(msft) AND msft!=\"\",lower(msft),null())"
                 },
                 {
                     "outputFields": [
                         {
-                            "fieldName": "created_at",
-                            "owner": "Vulnerabilities",
-                            "type": "number",
+                            "fieldName": "mskb",
+                            "owner": "Coding_Vulnerabilities",
+                            "type": "string",
                             "fieldSearch": "",
                             "required": false,
                             "multivalue": false,
                             "hidden": false,
                             "editable": true,
-                            "displayName": "created_at",
+                            "displayName": "mskb",
                             "comment": ""
                         }
                     ],
-                    "calculationID": "kh6ktbsm9r",
-                    "owner": "Vulnerabilities",
+                    "calculationID": "fg1jqyh3o5i",
+                    "owner": "Coding_Vulnerabilities",
                     "editable": true,
                     "comment": "",
                     "calculationType": "Eval",
-                    "expression": "round(strptime('alert.created_at', \"%Y-%m-%dT%H:%M:%S%Z\"))"
+                    "expression": "if(isnotnull(mskb) AND mskb!=\"\",lower(mskb),null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "severity",
+                            "owner": "Coding_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "severity",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "mrv47dwwya",
+                    "owner": "Coding_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(severity) OR severity=\"\",\"unknown\",severity)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "signature",
+                            "owner": "Coding_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "signature",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "iachc78n3wq",
+                    "owner": "Coding_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(signature) OR signature=\"\",\"unknown\",signature)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "vendor_product",
+                            "owner": "Coding_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "vendor_product",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "zarbrw1jral",
+                    "owner": "Coding_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "case(isnotnull(vendor_product),vendor_product,isnotnull(vendor) AND vendor!=\"unknown\" AND isnotnull(product) AND product!=\"unknown\",vendor.\" \".product,isnotnull(vendor) AND vendor!=\"unknown\" AND (isnull(product) OR product=\"unknown\"),vendor.\" unknown\",(isnull(vendor) OR vendor=\"unknown\") AND isnotnull(product) AND product!=\"unknown\",\"unknown \".product,isnotnull(sourcetype),sourcetype,1=1,\"unknown\")"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "xref",
+                            "owner": "Coding_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "xref",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "6ut9t4r625c",
+                    "owner": "Coding_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(xref) AND xref!=\"\",lower(xref),null())"
                 }
             ],
             "constraints": [
                 {
-                    "search": "(`devops_indexes`) tag=vulnerability tag=report",
-                    "owner": "Vulnerabilities"
+                    "search": "(`devops_indexes`) tag=vulnerability tag=report category=\"code\"",
+                    "owner": "Coding_Vulnerabilities"
                 }
             ],
-            "lineage": "Vulnerabilities"
+            "lineage": "Coding_Vulnerabilities"
+        },
+        {
+            "objectName": "High_Or_Critical_Code_Vulnerabilities",
+            "displayName": "High Or Critical Code Vulnerabilities",
+            "parentName": "Coding_Vulnerabilities",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "dest_bunit",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_category",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_priority",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "organization",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "repository_name",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "repository_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "severity_id",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "severity_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "signature_id",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "signature_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "tag",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "url",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_bunit",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_category",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_priority",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "action",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.number",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "number",
+                    "fieldSearch": "alert.number=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "alert.number",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "(severity=\"high\" OR severity=\"critical\")",
+                    "owner": "Coding_Vulnerabilities.High_Or_Critical_Code_Vulnerabilities"
+                }
+            ],
+            "lineage": "Coding_Vulnerabilities.High_Or_Critical_Code_Vulnerabilities"
+        },
+        {
+            "objectName": "Medium_Code_Vulnerabilities",
+            "displayName": "Medium Code Vulnerabilities",
+            "parentName": "Coding_Vulnerabilities",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "dest_bunit",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_category",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_priority",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "organization",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "repository_name",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "repository_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "severity_id",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "severity_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "signature_id",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "signature_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "tag",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "url",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_bunit",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_category",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_priority",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "action",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.number",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "number",
+                    "fieldSearch": "alert.number=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "alert.number",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "severity=\"medium\"",
+                    "owner": "Coding_Vulnerabilities.Medium_Code_Vulnerabilities"
+                }
+            ],
+            "lineage": "Coding_Vulnerabilities.Medium_Code_Vulnerabilities"
+        },
+        {
+            "objectName": "Low_Or_Informational_Code_Vulnerabilities",
+            "displayName": "Low Or Informational Code Vulnerabilities",
+            "parentName": "Coding_Vulnerabilities",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "dest_bunit",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_category",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_priority",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "organization",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "repository_name",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "repository_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "severity_id",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "severity_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "signature_id",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "signature_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "tag",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "url",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_bunit",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_category",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_priority",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "action",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.number",
+                    "owner": "Coding_Vulnerabilities",
+                    "type": "number",
+                    "fieldSearch": "alert.number=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "alert.number",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "(severity=\"low\" OR severity=\"informational\")",
+                    "owner": "Coding_Vulnerabilities.Low_Or_Informational_Code_Vulnerabilities"
+                }
+            ],
+            "lineage": "Coding_Vulnerabilities.Low_Or_Informational_Code_Vulnerabilities"
         }
     ],
     "objectNameList": [
-        "Vulnerabilities"
+        "Vulnerabilities",
+        "High_Critical_Vulnerabilities",
+        "Medium_Vulnerabilities",
+        "Low_Informational_Vulnerabilities",
+        "Coding_Vulnerabilities",
+        "High_Or_Critical_Code_Vulnerabilities",
+        "Medium_Code_Vulnerabilities",
+        "Low_Or_Informational_Code_Vulnerabilities"
     ]
 }
