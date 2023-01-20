@@ -3,7 +3,7 @@
     "displayName": "Code Vulnerabilities",
     "description": "Vulnerabilities Data Model",
     "objectSummary": {
-        "Event-Based": 8,
+        "Event-Based": 9,
         "Transaction-Based": 0,
         "Search-Based": 0
     },
@@ -1712,7 +1712,7 @@
                     "editable": true,
                     "comment": "",
                     "calculationType": "Eval",
-                    "expression": "if(isnull(severity) OR severity=\"\",\"unknown\",severity)"
+                    "expression": "if(isnull(severity) OR severity=\"\",if(isnull(severity_level) OR severity_level=\"\",\"unknown\",severity_level),severity)"
                 },
                 {
                     "outputFields": [
@@ -1779,6 +1779,28 @@
                     "comment": "",
                     "calculationType": "Eval",
                     "expression": "if(isnotnull(xref) AND xref!=\"\",lower(xref),null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_hash",
+                            "owner": "Coding_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_hash",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "wkm6upt0b3a",
+                    "owner": "Coding_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('commit_oid'), 'commit_oid', null())"
                 }
             ],
             "constraints": [
@@ -2520,6 +2542,371 @@
                 }
             ],
             "lineage": "Coding_Vulnerabilities.Low_Or_Informational_Code_Vulnerabilities"
+        },
+        {
+            "objectName": "Secret_Vulnerabilities",
+            "displayName": "Secret Vulnerabilities",
+            "parentName": "BaseEvent",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "dest_bunit",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_category",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dest_priority",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dest_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "organization",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "organization=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "repository_name",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "repository_name=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "repository_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "tag",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "url",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_bunit",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_bunit",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_category",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_category",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "user_priority",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "user_priority",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "severity_id",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "severity_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "secret_type",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "secret_type=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "secret_type",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "action",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "action=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "action",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "category",
+                            "owner": "Secret_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "category",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "g80x5heiqnb",
+                    "owner": "Secret_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(category) OR category=\"\",\"unknown\",category)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "dest",
+                            "owner": "Secret_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "dest",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "4ftmsfcscex",
+                    "owner": "Secret_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(dest) OR dest=\"\",\"unknown\",dest)"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "vendor_product",
+                            "owner": "Secret_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "vendor_product",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "khdutv0kybb",
+                    "owner": "Secret_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "case(isnotnull(vendor_product),vendor_product,isnotnull(vendor) AND vendor!=\"unknown\" AND isnotnull(product) AND product!=\"unknown\",vendor.\" \".product,isnotnull(vendor) AND vendor!=\"unknown\" AND (isnull(product) OR product=\"unknown\"),vendor.\" unknown\",(isnull(vendor) OR vendor=\"unknown\") AND isnotnull(product) AND product!=\"unknown\",\"unknown \".product,isnotnull(sourcetype),sourcetype,1=1,\"unknown\")"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "xref",
+                            "owner": "Secret_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "xref",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "3ytrs8s6spt",
+                    "owner": "Secret_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(url) AND url!=\"\",lower(url),null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "cert",
+                            "owner": "Secret_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "cert",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "276cmwfyyxi",
+                    "owner": "Secret_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull(cert) AND cert!=\"\",lower(cert),null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "severity",
+                            "owner": "Secret_Vulnerabilities",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "severity",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "u76z5q8c3f",
+                    "owner": "Secret_Vulnerabilities",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnull(severity) OR severity=\"\",\"unknown\",severity)"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "(`devops_indexes`) tag=vulnerability tag=report category=\"secret\"",
+                    "owner": "Secret_Vulnerabilities"
+                }
+            ],
+            "lineage": "Secret_Vulnerabilities"
         }
     ],
     "objectNameList": [
@@ -2530,6 +2917,7 @@
         "Coding_Vulnerabilities",
         "High_Or_Critical_Code_Vulnerabilities",
         "Medium_Code_Vulnerabilities",
-        "Low_Or_Informational_Code_Vulnerabilities"
+        "Low_Or_Informational_Code_Vulnerabilities",
+        "Secret_Vulnerabilities"
     ]
 }
