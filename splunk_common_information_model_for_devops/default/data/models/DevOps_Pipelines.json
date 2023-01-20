@@ -285,6 +285,28 @@
                     "comment": "",
                     "calculationType": "Eval",
                     "expression": "round(strptime('workflow_run.created_at',\"%Y-%m-%dT%H:%M:%SZ\"))"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_hash",
+                            "owner": "Pipelines",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_hash",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "8ewpzrweehe",
+                    "owner": "Pipelines",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('workflow_run.head_sha'), 'workflow_run.head_sha', null())"
                 }
             ],
             "constraints": [
