@@ -20,6 +20,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.9'
+          # Optional - x64 or x86 architecture, defaults to x64
+          architecture: 'x64'
+
       - name: Install deps
         uses: CultureHQ/actions-yarn@master
         with:
@@ -52,7 +60,7 @@ jobs:
           slim package ./splunk_common_information_model_for_devops
 
       - name: Run App Inspect CLI
-        uses: splunk/appinspect-cli-action@v1
+        uses: splunk/appinspect-cli-action@v1.5
         with:
           app_path: splunk_common_information_model_for_devops-1.0.0.tar.gz
           included_tags: cloud, splunk_appinspect
