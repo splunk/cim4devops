@@ -1,0 +1,1508 @@
+{
+    "modelName": "DevOps_SBOM",
+    "displayName": "DevOps SBOM",
+    "description": "SBOM DataModel for SPDX and CycloneDX formats",
+    "objectSummary": {
+        "Event-Based": 0,
+        "Transaction-Based": 0,
+        "Search-Based": 3
+    },
+    "objects": [
+        {
+            "objectName": "sbom",
+            "displayName": "sbom",
+            "parentName": "BaseSearch",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "Created",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Created",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Creator",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Creator",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "DataLicense",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "DataLicense",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "DocumentName",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "DocumentName",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "DocumentNamespace",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "DocumentNamespace",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "FileChecksum",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "FileChecksum",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "FileCopyrightText",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "FileCopyrightText",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "FileName",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "FileName",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "FileType",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "FileType",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "FilesAnalyzed",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "FilesAnalyzed",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "LicenseConcluded",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "LicenseConcluded",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "LicenseInfoInFile",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "LicenseInfoInFile",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Package",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Package",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "PackageCopyrightText",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "PackageCopyrightText",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "PackageDownloadLocation",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "PackageDownloadLocation",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "PackageLicenseConcluded",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "PackageLicenseConcluded",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "PackageLicenseDeclared",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "PackageLicenseDeclared",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "PackageLicenseInfoFromFiles",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "PackageLicenseInfoFromFiles",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "PackageName",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "PackageName",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "PackageVerificationCode",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "PackageVerificationCode",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "Relationship",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "Relationship",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "SHA1",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "SHA1",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "SPDXID",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "SPDXID",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "SPDXVersion",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "SPDXVersion",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "bomFormat",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "bomFormat",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "components",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "components",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "dataLicense",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "dataLicense",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "metadata.authors",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "metadata.authors",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "metadata.properties",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "metadata.properties",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "metadata.timestamp",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "metadata.timestamp",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "metadata.tools",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "metadata.tools",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "name",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "os.type",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "os.type",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "serialNumber",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "serialNumber",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "spdxVersion",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "spdxVersion",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "specVersion",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "specVersion",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "tag",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "tag",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "timestamp",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "timestamp",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "version",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "version",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "component_name",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "component_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "vul_affects_ref",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "vul_affects_ref",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "vul_description",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "vul_description",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "vul_id",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "vul_id",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "vul_ratings_method",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "vul_ratings_method",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "vul_ratings_score",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "vul_ratings_score",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "vul_ratings_severity",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "vul_ratings_severity",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "vul_ratings_source_url",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "vul_ratings_source_url",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "vul_recommendations",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "vul_recommendations",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "component_type",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "component_type",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "sbt1w6nayhf",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('components{}.type'), 'components{}.type', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "component_purl",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "component_purl",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "9gig1unf20e",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('components{}.purl'), 'components{}.purl', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "component_version",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "component_version",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "t9xle1vi7z",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('components{}.version'), 'components{}.version', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "authors_email",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "authors_email",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "zoddhic6f19",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('metadata.authors{}.email'), 'metadata.authors{}.email', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "authors_name",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "authors_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "kskvb7d7oxc",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('metadata.authors{}.name'), 'metadata.authors{}.name', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "properties_name",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "properties_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "690z0i98dsf",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('metadata.properties{}.name'), 'metadata.properties{}.name', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "properties_value",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "properties_value",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "xbtwnoxbe5",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('metadata.properties{}.value'), 'metadata.properties{}.value', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "tools_name",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "tools_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "6wdot0p6ia",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('metadata.tools{}.name'), 'metadata.tools{}.name', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "tools_vendor",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "tools_vendor",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "m8v7t5hrlpj",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('metadata.tools{}.vendor'), 'metadata.tools{}.vendor', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "tools_version",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "tools_version",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "nb7s6ktpfo",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('metadata.tools{}.version'), 'metadata.tools{}.version', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_copyrightText",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_copyrightText",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "djemnvr4o1c",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.copyrightText'), 'packages{}.copyrightText', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_downloadLocation",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_downloadLocation",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "r3xbbv3b3yn",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.downloadLocation'), 'packages{}.downloadLocation', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_externalRefs_referenceCategory",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_externalRefs_referenceCategory",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "mhurywhbux",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.externalRefs{}.referenceCategory'), 'packages{}.externalRefs{}.referenceCategory', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_externalRefs_referenceLocator",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_externalRefs_referenceLocator",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "cmj6o7akthm",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.externalRefs{}.referenceLocator'), 'packages{}.externalRefs{}.referenceLocator', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_referenceType",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_referenceType",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "56v00uw0a3c",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.externalRefs{}.referenceType'), 'packages{}.externalRefs{}.referenceType', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_filesAnalyzed",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_filesAnalyzed",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "p4yqm8a284k",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.filesAnalyzed'), 'packages{}.filesAnalyzed', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_hasFiles",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_hasFiles",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "mt2qol1w3f",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.hasFiles{}'), 'packages{}.hasFiles{}', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_licenseConcluded",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_licenseConcluded",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "8r9zlr8ivk7",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.licenseConcluded'), 'packages{}.licenseConcluded', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_licenseDeclared",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_licenseDeclared",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "mgdrqfjed8l",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.licenseDeclared'), 'packages{}.licenseDeclared', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_licenseInfoFromFiles",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_licenseInfoFromFiles",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "fezxwo6gnba",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.licenseInfoFromFiles{}'), 'packages{}.licenseInfoFromFiles{}', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_name",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_name",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "b73rhfbh2d5",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.name'), 'packages{}.name', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_packageVerificationCode.packageVerificationCodeValue",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_packageVerificationCode.packageVerificationCodeValue",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "mxu2tlzug6o",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.packageVerificationCode.packageVerificationCodeValue'), 'packages{}.packageVerificationCode.packageVerificationCodeValue', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_SPDXID",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_SPDXID",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "fudjivxsmk8",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.SPDXID'), 'packages{}.SPDXID', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "packages_supplier",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "packages_supplier",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "mhc58rysoja",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('packages{}.supplier'), 'packages{}.supplier', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_checksums_algorithm",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_checksums_algorithm",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "7g5rpdiyf0s",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('files{}.checksums{}.algorithm'), 'files{}.checksums{}.algorithm', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_checksums_checksumValue",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_checksums_checksumValue",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "1yo5d69z2wl",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('files{}.checksums{}.checksumValue'), 'files{}.checksums{}.checksumValue', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_copyrightText",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_copyrightText",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "gu1ix0h796g",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('files{}.copyrightText'), 'files{}.copyrightText', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_fileName",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_fileName",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "g6uborkiwas",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('files{}.fileName'), 'files{}.fileName', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_licenseConcluded",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_licenseConcluded",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "jbc3ekryuld",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('files{}.licenseConcluded'), 'files{}.licenseConcluded', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_licenseInfoInFiles",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_licenseInfoInFiles",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "wph5o90rmwb",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('files{}.licenseInfoInFiles{}'), 'files{}.licenseInfoInFiles{}', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "files_SPDXID",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "files_SPDXID",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "211exzvhql5",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('files{}.SPDXID'), 'files{}.SPDXID', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "relationships_relatedSpdxElement",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "relationships_relatedSpdxElement",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "m7ak90trqe",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('relationships{}.relatedSpdxElement'), 'relationships{}.relatedSpdxElement', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "relationships_relationshipType",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "relationships_relationshipType",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "45xzdci3e4k",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('relationships{}.relationshipType'), 'relationships{}.relationshipType', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "relationships_spdxElementId",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "relationships_spdxElementId",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "baw69nmr7lh",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('relationships{}.spdxElementId'), 'relationships{}.spdxElementId', null())"
+                },
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_hash",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_hash",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "ybe7ctdkn5",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('latest_commit_hash'), 'latest_commit_hash', null())"
+                }
+            ],
+            "constraints": [],
+            "lineage": "sbom",
+            "baseSearch": "`sbom_indexes`"
+        },
+        {
+            "objectName": "minimum",
+            "displayName": "minimum",
+            "parentName": "BaseSearch",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "author_name",
+                    "owner": "minimum",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "author_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "component_hash",
+                    "owner": "minimum",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "component_hash",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "component_name",
+                    "owner": "minimum",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "component_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "component_unique_identifier",
+                    "owner": "minimum",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "component_unique_identifier",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "rellationship",
+                    "owner": "minimum",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "relationship",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [],
+            "lineage": "minimum",
+            "baseSearch": "`sbom_indexes` tag=sbom"
+        },
+        {
+            "objectName": "recommended",
+            "displayName": "recommended",
+            "parentName": "BaseSearch",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "author_name",
+                    "owner": "recommended",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "author_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "component_hash",
+                    "owner": "recommended",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "component_hash",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "component_name",
+                    "owner": "recommended",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "component_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "component_unique_identifier",
+                    "owner": "recommended",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "component_unique_identifier",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [],
+            "lineage": "recommended",
+            "baseSearch": "`sbom_indexes` OR tag=sbom"
+        }
+    ],
+    "objectNameList": [
+        "sbom",
+        "minimum",
+        "recommended"
+    ]
+}

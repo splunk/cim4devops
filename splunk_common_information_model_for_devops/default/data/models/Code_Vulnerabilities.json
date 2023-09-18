@@ -108,20 +108,6 @@
                     }
                 },
                 {
-                    "fieldName": "url",
-                    "owner": "Vulnerabilities",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "url",
-                    "comment": {
-                        "description": "The URL involved in the discovered vulnerability."
-                    }
-                },
-                {
                     "fieldName": "user",
                     "owner": "Vulnerabilities",
                     "type": "string",
@@ -202,6 +188,42 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.external_reference",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "action",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.number",
+                    "owner": "Vulnerabilities",
+                    "type": "number",
+                    "fieldSearch": "alert.number=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "alert.number",
                     "comment": ""
                 },
                 {
@@ -640,20 +662,6 @@
                     }
                 },
                 {
-                    "fieldName": "url",
-                    "owner": "Vulnerabilities",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "url",
-                    "comment": {
-                        "description": "The URL involved in the discovered vulnerability."
-                    }
-                },
-                {
                     "fieldName": "user",
                     "owner": "Vulnerabilities",
                     "type": "string",
@@ -734,6 +742,42 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.external_reference",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "action",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.number",
+                    "owner": "Vulnerabilities",
+                    "type": "number",
+                    "fieldSearch": "alert.number=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "alert.number",
                     "comment": ""
                 },
                 {
@@ -894,20 +938,6 @@
                     }
                 },
                 {
-                    "fieldName": "url",
-                    "owner": "Vulnerabilities",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "url",
-                    "comment": {
-                        "description": "The URL involved in the discovered vulnerability."
-                    }
-                },
-                {
                     "fieldName": "user",
                     "owner": "Vulnerabilities",
                     "type": "string",
@@ -988,6 +1018,42 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.external_reference",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "action",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.number",
+                    "owner": "Vulnerabilities",
+                    "type": "number",
+                    "fieldSearch": "alert.number=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "alert.number",
                     "comment": ""
                 },
                 {
@@ -1148,20 +1214,6 @@
                     }
                 },
                 {
-                    "fieldName": "url",
-                    "owner": "Vulnerabilities",
-                    "type": "string",
-                    "fieldSearch": "",
-                    "required": false,
-                    "multivalue": false,
-                    "hidden": false,
-                    "editable": true,
-                    "displayName": "url",
-                    "comment": {
-                        "description": "The URL involved in the discovered vulnerability."
-                    }
-                },
-                {
                     "fieldName": "user",
                     "owner": "Vulnerabilities",
                     "type": "string",
@@ -1242,6 +1294,42 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "organization",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.external_reference",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "url",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "action",
+                    "owner": "Vulnerabilities",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.number",
+                    "owner": "Vulnerabilities",
+                    "type": "number",
+                    "fieldSearch": "alert.number=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "alert.number",
                     "comment": ""
                 },
                 {
@@ -2715,6 +2803,18 @@
                     "hidden": false,
                     "editable": true,
                     "displayName": "action",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "alert.number",
+                    "owner": "Secret_Vulnerabilities",
+                    "type": "number",
+                    "fieldSearch": "alert.number=*",
+                    "required": true,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "alert.number",
                     "comment": ""
                 },
                 {

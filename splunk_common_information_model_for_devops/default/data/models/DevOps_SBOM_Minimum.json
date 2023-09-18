@@ -1,0 +1,170 @@
+{
+    "modelName": "DevOps_SBOM_Minimum",
+    "displayName": "DevOps SBOM Minimum",
+    "description": "Minimum requirements from the NTIA to meet executive order 14028",
+    "objectSummary": {
+        "Event-Based": 0,
+        "Transaction-Based": 0,
+        "Search-Based": 1
+    },
+    "objects": [
+        {
+            "objectName": "sbom",
+            "displayName": "sbom",
+            "parentName": "BaseSearch",
+            "comment": "",
+            "fields": [
+                {
+                    "fieldName": "author_name",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "author_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "component_hash",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "component_hash",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "component_name",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "component_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "component_unquie_identifier",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "component_unquie_identifier",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "package_supplier",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "package_supplier",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "relationship",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "relationship",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "supplier_name",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "supplier_name",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "version_string",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "version_string",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sbom_unquire_identifier",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sbom_unquire_identifier",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "purl",
+                    "owner": "sbom",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "purl",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "latest_commit_hash",
+                            "owner": "sbom",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "latest_commit_hash",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "v0ukutj0aj",
+                    "owner": "sbom",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "if(isnotnull('latest_commit_hash'), 'latest_commit_hash', null())"
+                }
+            ],
+            "constraints": [],
+            "lineage": "sbom",
+            "baseSearch": "`sbom_indexes` OR tag=sbom"
+        }
+    ],
+    "objectNameList": [
+        "sbom"
+    ]
+}
