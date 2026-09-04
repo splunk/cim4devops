@@ -31,7 +31,7 @@ jobs:
       - name: Install deps
         uses: CultureHQ/actions-yarn@master
         with:
-          args: install
+          args: install --ignore-engines
 
       - name: Lint
         uses: CultureHQ/actions-yarn@master
